@@ -7,13 +7,13 @@ import net.corda.testing.node.MockServices
 import net.corda.testing.node.ledger
 import org.junit.Test
 
-class ContractTests {
+class AppleStampContractTests {
     var alice = TestIdentity(CordaX500Name("Alice", "TestLand", "US"))
     var bob = TestIdentity(CordaX500Name("Alice", "TestLand", "US"))
     private val ledgerServices: MockServices = MockServices(listOf("com.github.hudifu316"), alice, bob)
 
     @Test
-    fun StampIssuanceCanOnlyHaveOneOutput() {
+    fun StampIssuance() {
         val stamp1 = AppleStamp("Fuji Apple", alice.party, bob.party)
         val stamp2 = AppleStamp("ときりんご", alice.party, bob.party)
         val stamp3 = AppleStamp("", alice.party, bob.party)
